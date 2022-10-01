@@ -19,7 +19,7 @@ We are appointing teacher/students or anyone who qualifies with part-time jobs. 
 2. Install the extra modules, included in app.js include part.
 3. Run ```npm run server```  in your terminal at the exact directory where the app.js is located.
 4. Make sure you have a stable internet connection.
-5. On your web browser run 'localhost:3000'
+5. On your web browser run ```localhost:3000```
 6. All done.
 ## Installation
 
