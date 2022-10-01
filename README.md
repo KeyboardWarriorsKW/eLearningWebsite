@@ -15,9 +15,9 @@ We are appointing teacher/students or anyone who qualifies with part-time jobs. 
 
 
 ## Initial setup
-1. Install all the node modules with ```bash 'npm i' ```
+1. Install all the node modules with ```npm i```
 2. Install the extra modules, included in app.js include part.
-3. Run ```bash 'npm run server'```  in your terminal at the exact directory where the app.js is located.
+3. Run ```npm run server```  in your terminal at the exact directory where the app.js is located.
 4. Make sure you have a stable internet connection.
 5. On your web browser run 'localhost:3000'
 6. All done.
