@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>   
+    <title>Video Upload</title>
+    <link rel="icon" href="./pic/icon.ico">
+
+</head>
+<body class="text-bg-dark">
+<%- include("techeader_auth.ejs") %>
+
+    <div class="col-md-12 col-lg-12 text-bg-dark">
+        <h4 class="mb-3 text-center">Upload Your Course Video</h4>
+        <form class="needs-validation" action="/courseVideoUpload" method="POST" enctype="multipart/form-data">
+            <input type="hidden" value="<%=course.courseID%>" name="courseID">
+            <%if(course.chapterName){%>
+            <input type="hidden" value="<%=course.chapterName%>" name="chapter">
+              <%}else{%>
+            <input type="hidden" value="<%=chapterName%>" name="chapter">
+            <%}%>
+
+          <div class="row g-3" style="padding: 20px; margin-left:7%; margin-right:7%;">
+    
+    
+            <div class="col-12">
+              <label for="videoTitle" class="form-label">Video title</label>
+              <input type="text" class="form-control" name="videoTitle" placeholder="Enter The Video name" value="" required="">
+              <div class="invalid-feedback">
+                Valid Video Title is required.
+              </div>
+            </div>
+            <div class="border rounded " style="padding: 50px;">
+           
+                <input class="form-control form-control-lg" type="file" name="file"/>
+                <div style="margin-top: 20px;">
+
+                    <button type="submit" class="btn btn-manual">Upload1</button>
+                </div>
+              
+            </div>
+    
+            
+          </div>
+          
+        </form>
+
+<%- include("tecfooter.ejs") %>
+</body>
+</html>

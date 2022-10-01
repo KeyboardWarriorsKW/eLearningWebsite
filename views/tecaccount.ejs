@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>   
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="./pic/icon.ico">
+
+    <style>
+      .avatar-upload {
+  position: relative;
+  max-width: 205px;
+  margin: 50px auto;
+}
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 12px;
+  z-index: 1;
+  top: 10px;
+}
+.avatar-upload .avatar-edit button {
+  display: none;
+}
+.avatar-upload .avatar-edit button + label {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #ffffff;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.2s ease-in-out;
+}
+.avatar-upload .avatar-edit button + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+.avatar-upload .avatar-edit button + label:after {
+  content: "\f040";
+  font-family: "FontAwesome";
+  color: #757575;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.avatar-upload .avatar-preview {
+  width: 192px;
+  height: 192px;
+  position: relative;
+  border-radius: 100%;
+  border: 6px solid rgba(255, 205, 78, 0.533);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+    </style>
+    
+</head>
+<body class="text-bg-dark">
+
+  <%- include("techeader_auth.ejs") %>
+
+
+<div class="account">
+        
+        
+        <div class="row g-5">
+        <div class="col-md-7 col-lg-6">
+          
+          
+          <div class="col-sm-7 justify-content-center" id="details">
+            <div class="avatar-upload">
+              <div class="avatar-edit">
+                <a href="/photoUpload">
+                  <button type="submit" formaction="/photoUpload"></button>
+                  <label for="imageUpload"></label>
+                  </a>
+              </div>
+              <div class="avatar-preview">
+                  <div id="imagePreview" style="background-image: url(<%=user.pic%>);">
+                  </div>
+              </div>
+          </div>
+
+            <ul></ul>
+            <h5 class="md-10">Name : <%=user.name%>   <a href="/editname"> <img src="./pic/edit.svg" height="20px" width="20px"></a></h5>
+            <h6 class="md-10">Email : <%=user.email%> </h6>
+            <h5 class="md-10"><small class="text-muted">Profile : <%=user.role%></small></h5>
+            
+            
+          </div>
+        </div>
+        <% if(!data[0].address){ %>
+        <div class="col-md-4 col-lg-6 order-md-last">
+    <div class="col-md-12 col-lg-12">
+      <h4 class="mb-3">Profile</h4>
+      <form class="needs-validation" method="post" novalidate="">
+        <div class="row g-3">
+          <div class="col-12">
+            <label for="school" class="form-label">Highest Qualification</label>
+            <select class="form-select" name="qualification">
+              <option value="">Choose...</option>
+              <option value="hs">Higher Secondary</option>
+              <option value="b">Bachelor's</option>
+              <option value="m">Master's</option>
+              <option value="phd">PhD</option>
+              <option value="d">Deploma</option>
+
+            </select>
+            <div class="invalid-feedback">
+              Please enter a valid Qualification.
+            </div>
+          </div>
+          
+          <div class="col-12">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" placeholder="e.g. 12 Street, Main Road" required="" name="address">
+            <div class="invalid-feedback">
+              Please enter your parmanent address.
+            </div>
+          </div>
+          
+          <div class="col-12">
+            <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
+            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite"  name="address2">
+          </div>
+          
+          <div class="col-md-6">
+            <label for="country" class="form-label">Gender</label>
+            <select class="form-select" id="country" name="gender">
+              <option value="">Choose...</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+            
+          </div>
+          
+          
+          
+          <div class="col-md-6">
+            <label for="zip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="zip" placeholder="Postal Code" name="zip">
+            
+          </div>
+        </div>
+        
+        
+
+      </div>
+    </div>  
+  </div>
+  <ul></ul>
+  
+  <button class="w-100 btn btn-manual-primary btn-lg" type="submit">Save</button>
+</form>
+<% }else{ %>
+  <div class="col-md-4 col-lg-6 order-md-last">
+    <div class="col-md-12 col-lg-12">
+      <h4 class="py-5 mb-3 text-center btn-manual font-monospace"><b>Your Profile</b></h4>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><b>Qualification</b></td>
+            <td><%=data[0].qualification%></td>
+          </tr>
+          <tr>
+            <td><b>Address</b></td>
+            <td><%=data[0].address%></td>
+          </tr>
+          <tr>
+            <td><b>Zip</b></td>
+            <td><%=data[0].zip%></td>
+          </tr>
+          <tr>
+            <td><b>Gender</b></td>
+            <td><%=data[0].gender%></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <% } %>
+</div>
+
+
+</body>
+
+
+<%- include("tecfooter.ejs") %>
+
+
+
+
+</html>

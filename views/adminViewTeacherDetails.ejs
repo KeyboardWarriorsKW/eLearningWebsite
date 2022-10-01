@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.101.0">
+  <title>Manage Teacher</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="dashboard.js" rel="script">
+  <link href="dashboard.css" rel="stylesheet">
+  <link rel="icon" href="./pic/icon.ico">
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard/">
+
+
+
+
+
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="/about">Keyboard Warriors</a>
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+    </div>
+    <button type="button" class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Sign Out?
+      </button>
+  </header>
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to sign out? Unsaved work may be lost.</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <li class="d-flex align-items-center">
+                        <small class="btn btn-primary" data-bs-dismiss="modal">
+                            Stay
+                        </small>
+                      </a>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <a href="/signout" class="btn btn-secondary">
+                        <small>
+                            Sign Out
+                        </small>
+                      </a>
+                  </li>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- SIDEBAR STARTS HERE -->
+<div class="container-fluid">
+<div class="row">
+  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <div class="position-sticky pt-3 sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/admin-portal">
+            <span data-feather="check" class="align-text-bottom"></span>
+            Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/adminViewStudentDetails">
+            <span data-feather="users" class="align-text-bottom"></span>
+            Manage Students
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/adminViewTeacherDetails">
+            <span data-feather="user" class="align-text-bottom"></span>
+            Manage Teachers
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="adminViewCourseDetails">
+            <span data-feather="shopping-cart" class="align-text-bottom"></span>
+            Manage Courses
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/adminViewFaqDetails">
+            <span data-feather="clipboard" class="align-text-bottom"></span>
+            Manage FAQs
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<!-- SIDEBAR ENDS HERE! -->
+
+  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <h2>Teacher Details</h2>
+    <!-- </thead> -->
+    <span class="table-responsive col-md-5">
+
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Teacher Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Adderss</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% let i=0; %>
+            <% while(data[i]){ %>
+
+          <tr>
+            <td>            <%=i+1 %>            </td>
+            <td>            <%=data[i].name %>            </td>
+            <td>            <%=data[i].email %>            </td>
+            <td>            <%=data[i].gender %>            </td>
+            <td>            <%=data[i].address %>            </td>
+          </tr>
+          <% i+=1;} %>
+        </tbody>
+      </table>
+    </span>
+  </main> 
+</body>
+</html>

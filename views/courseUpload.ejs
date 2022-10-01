@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>   
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./pic/icon.ico">
+    
+</head>
+<body class="text-bg-dark">
+<%- include("techeader_auth.ejs") %>
+
+<div class="col-md-12 col-lg-12 text-bg-dark">
+    <h4 class="mb-3 text-center">Upload Your Course</h4>
+    <form class="needs-validation" novalidate="" method="post">
+      <div class="row g-3" style="padding: 20px; margin-left:7%; margin-right:7%;">
+
+
+        <div class="col-12">
+          <label for="courseName" class="form-label">Course Name</label>
+          <input type="text" class="form-control" name="courseName" placeholder="Enter The Course name" value="" required="">
+          <div class="invalid-feedback">
+            Valid Course name is required.
+          </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <label for="courseTopic" class="form-label">Course Topic</label>
+            <select class="form-select" name="courseTopic" required="">
+              
+              <option value="Entrance Exams">Entrance Exams</option>
+              <option value="Class XI & XII">Class XI & XII</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid state.
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <label for="courseStream" class="form-label">Course Stream(only for class XI & XII)</label>
+            <select class="form-select" name="courseStream" required="">
+            
+              <option value="Science">Science</option>
+              <option value="Arts&Commerce">Arts&Commerce</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid Stream.
+            </div>
+        </div>
+        <div class="col-12">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" name="subject" placeholder="Enter The Subject name" value="" required="">
+            <div class="invalid-feedback">
+              Valid Subject name is required.
+            </div>
+          </div>
+
+        <div class="col-12">
+          <label for="chapter" class="form-label">Chapter</label>
+          <input type="text" class="form-control" name="chapter" placeholder="e.g Optics" required="">
+          <div class="invalid-feedback">
+            Please enter the Chapter name.
+          </div>
+        </div>
+
+      </div>
+      <button class="btn btn-manual-primary btn-lg" type="submit" style="margin:7%; align-items: center;">Create your Course</button>
+    </form>
+  </div>
+    
+</body>
+
+<%- include("tecfooter.ejs") %>
+
+</html>

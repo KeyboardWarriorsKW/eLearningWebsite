@@ -1,0 +1,44 @@
+    <!-- navbar -->
+    <div class="container bg-dark">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+          <a class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <img src="./pic/logo.png">
+            <div class="nametag text-light">
+            <h3>Keyboard
+                <small class="text-muted">Warriors</small>
+            </h3>
+            </div>
+          </a>
+            
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="/home" class="nav-link px-2 link-secondary text-light">Home</a></li>
+             
+              <li><a href="/teccontent" class="nav-link px-2 link-secondary text-light">My Content</a></li>
+            
+
+            <li><a href="/courseUpload" class="nav-link px-2 link-secondary text-light">Create Course</a></li>
+            <li><a href="#" class="nav-link px-2 link-secondary text-light">FAQs</a></li>
+            <li><a href="/about" class="nav-link px-2 link-secondary text-light" target="_blank">About</a></li>
+            
+          </ul>
+          
+          
+              <div class="dropdown">
+                <a href="#" class="d-flex align-items-center link-secondary text-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="<%=user.pic%>" alt="" width="32" height="32" class="rounded-circle me-2">
+                  <strong><%=user.username%></strong>
+                </a>
+                <ul class="dropdown-menu bg-dark text-small shadow">
+                  <li><a class="dropdown-item link-secondary text-light" href="/teccontent">My Content</a></li>
+                  <li><a class="dropdown-item link-secondary text-light" href="#">Settings</a></li>
+                  <li><a class="dropdown-item link-secondary text-light" href="/account">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item link-secondary text-light" href="/signout">Sign out</a></li>
+                </ul>
+                </div>
+               
+  
+        </header>
+      </div>
+  
+  <!-- navbar -->
