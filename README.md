@@ -11,7 +11,7 @@ We are appointing teacher/students or anyone who qualifies with part-time jobs. 
 
 - [@Sovan-Sarkar](https://github.com/El-Psy-Congroo-001)
 - [@Swarnadeep-Das](https://github.com/jojocoder28)
-- [@Souram-Bhagat](https://github.com/jojocoder28)
+- [@Souram-Bhagat](https://github.com/Sourom-Bhagat)
 
 
 ## Initial setup
